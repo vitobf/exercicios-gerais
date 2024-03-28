@@ -9,6 +9,7 @@ int main()
     int rows1, rows2;
     int cols1, cols2;
     int i, j;
+    int scalar, chosenMatrix;
 
     scanf("%d %d", &rows1, &cols1);
     int matrix1[rows1][cols1];
@@ -18,67 +19,88 @@ int main()
     int matrix2[rows2][cols2];
     matrix_read(rows2, cols2, matrix2);
 
-    int result1[rows1][cols1];
-    for (i = 0; i < rows1; i++)
-    {
-        for (j = 0; j < cols1; j++)
-        {
-            result1[i][j] = 0;
-        }
-    }
-
-    int result2[rows2][cols2];
-    for (i = 0; i < rows2; i++)
-    {
-        for (j = 0; j < cols2; j++)
-        {
-            result2[i][j] = 0;
-        }
-    }
-
+    int result[rows1][cols1];
     int resultMultiplicacao[rows1][cols2];
-    for (i = 0; i < rows1; i++)
-    {
-        for (j = 0; j < cols2; j++)
-        {
-            resultMultiplicacao[i][j] = 0;
-        }
-    }
 
 #pragma endregion
 
 #pragma region Escolhas e operações
-    printf("1 - Somar Matrizes \n");
-    printf("2 - Subtrair Matrizes\n");
-    printf("3 - Multiplicar Matrizes\n");
-    printf("4 - Multiplicação de uma matriz por escalar\n");
-    printf("5 - Transposta de uma matriz\n");
-    printf("6 - Encerrar o programa\nOpção escolhida:\n");
-    scanf("%d", &escolha);
-    switch (escolha)
+    while (1)
     {
-    case 1:
+        printf("1 - Somar matrizes \n");
+        printf("2 - Subtrair matrizes\n");
+        printf("3 - Multiplicar matrizes\n");
+        printf("4 - Multiplicacao de uma matriz por escalar\n");
+        printf("5 - Transposta de uma matriz\n");
+        printf("6 - Encerrar o programa\nOpcao escolhida:\n");
+        scanf("%d", &escolha);
+        if (escolha == 1)
+        {
+            if (possible_matrix_sum(rows1, cols1, rows2, cols2))
+            {
+                matrix_add(rows1, cols1, matrix1, rows2, cols2, matrix2, result);
+                matrix_print(rows1, cols1, result);
+            }
+            else
+            {
+                printf("Erro: as dimensoes da matriz nao correspondem\n");
+            }
+        }
 
-        break;
-    case 2:
-
-        break;
-    case 3:
-
-        break;
-    case 4:
-
-        break;
-    case 5:
-
-        break;
-    case 6:
-        return 0;
-        break;
-    default:
-        printf("Opção inválida, encerrando o programa...");
-        return 0;
-        break;
+        else if (escolha == 2)
+        {
+            if (possible_matrix_sub(rows1, cols1, rows2, cols2))
+            {
+                matrix_sub(rows1, cols1, matrix1, rows2, cols2, matrix2, result);
+                matrix_print(rows1, cols1, result);
+            }
+            else
+            {
+                printf("Erro: as dimensoes da matriz nao correspondem\n");
+            }
+        }
+        else if (escolha == 3)
+        {
+            if (possible_matrix_multiply(cols1, rows2))
+            {
+                matrix_multiply(rows1, cols1, matrix1, rows2, cols2, matrix2, resultMultiplicacao);
+                matrix_print(rows1, cols2, resultMultiplicacao);
+            }
+            else
+            {
+                printf("Erro: as dimensoes da matriz nao correspondem\n");
+            }
+        }
+        else if (escolha == 4)
+        {
+            scanf("%d %d", &scalar, &chosenMatrix);
+            if (chosenMatrix == 1)
+            {
+                scalar_multiply(rows1, cols1, matrix1, scalar);
+                matrix_print(rows1, cols1, matrix1);
+            }
+            else if (chosenMatrix == 2)
+            {
+                scalar_multiply(rows2, cols2, matrix2, scalar);
+                matrix_print(rows2, cols2, matrix2);
+            }
+            else
+            {
+                printf("Seleção de matriz inválida.\n");
+            }
+        }
+        else if (escolha == 5)
+        {
+            transpose_matrix(rows1, cols1, matrix1, result);
+        }
+        else if (escolha == 6)
+        {
+            return 0;
+        }
+        else 
+        {
+            printf("Opcao invalida\n");
+        }
     }
 #pragma endregion
 }
