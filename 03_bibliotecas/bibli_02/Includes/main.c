@@ -3,7 +3,7 @@
 
 int main()
 {
-#pragma region Declarando variáveis e lendo matrizes. Inicializando matriz "result".
+#pragma region Declarando variáveis e lendo matrizes. Inicializando matrizes "result".
 
     int escolha;
     int rows1, rows2;
@@ -33,6 +33,15 @@ int main()
         for (j = 0; j < cols2; j++)
         {
             result2[i][j] = 0;
+        }
+    }
+
+    int resultMultiplicacao[rows1][cols2];
+    for (i = 0; i < rows1; i++)
+    {
+        for (j = 0; j < cols2; j++)
+        {
+            resultMultiplicacao[i][j] = 0;
         }
     }
 
