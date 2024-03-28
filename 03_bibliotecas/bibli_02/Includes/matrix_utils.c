@@ -72,7 +72,7 @@ void transpose_matrix(int rows, int cols, int matrix[rows][cols], int result[col
     {
         for (j = 0; j < cols; j++)
         {
-            result[cols][rows] = matrix[rows][cols];
+            result[i][j] = matrix[i][j];
         }
     }
 }
@@ -84,7 +84,7 @@ void scalar_multiply(int rows, int cols, int matrix[rows][cols], int scalar)
     {
         for (j = 0; j < cols; j++)
         {
-            matrix[rows][cols] = matrix[rows][cols] * 2;
+            matrix[i][j] = matrix[i][j] * scalar;
         }
     }
 }

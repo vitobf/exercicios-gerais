@@ -3,11 +3,12 @@
 
 int main()
 {
-    #pragma region Declarando variáveis e lendo matrizes
+#pragma region Declarando variáveis e lendo matrizes. Inicializando matriz "result".
 
     int escolha;
-    int rows1, rows2; 
+    int rows1, rows2;
     int cols1, cols2;
+    int i, j;
 
     scanf("%d %d", &rows1, &cols1);
     int matrix1[rows1][cols1];
@@ -17,10 +18,33 @@ int main()
     int matrix2[rows2][cols2];
     matrix_read(rows2, cols2, matrix2);
 
-    #pragma endregion
+    int result1[rows1][cols1];
+    for (i = 0; i < rows1; i++)
+    {
+        for (j = 0; j < cols1; j++)
+        {
+            result1[i][j] = 0;
+        }
+    }
 
-    #pragma region Escolhas e operações
-    printf("1 - Somar Matrizes \n2 - Subtrair Matrizes\n3 - Multiplicar Matrizes\n4 - Multiplicação de uma matriz por escalar\n5 - Transposta de uma matriz\n 6 - Encerrar o programa\nOpção escolhida:\n");
+    int result2[rows2][cols2];
+    for (i = 0; i < rows2; i++)
+    {
+        for (j = 0; j < cols2; j++)
+        {
+            result2[i][j] = 0;
+        }
+    }
+
+#pragma endregion
+
+#pragma region Escolhas e operações
+    printf("1 - Somar Matrizes \n");
+    printf("2 - Subtrair Matrizes\n");
+    printf("3 - Multiplicar Matrizes\n");
+    printf("4 - Multiplicação de uma matriz por escalar\n");
+    printf("5 - Transposta de uma matriz\n");
+    printf("6 - Encerrar o programa\nOpção escolhida:\n");
     scanf("%d", &escolha);
     switch (escolha)
     {
@@ -47,5 +71,5 @@ int main()
         return 0;
         break;
     }
-    #pragma endregion
+#pragma endregion
 }
