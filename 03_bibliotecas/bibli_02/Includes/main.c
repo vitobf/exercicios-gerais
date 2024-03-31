@@ -43,7 +43,7 @@ int main()
             }
             else
             {
-                printf("Erro: as dimensoes da matriz nao correspondem\n");
+                printf("Erro: as dimensoes da matriz nao correspondem\n\n");
             }
         }
 
@@ -56,7 +56,7 @@ int main()
             }
             else
             {
-                printf("Erro: as dimensoes da matriz nao correspondem\n");
+                printf("Erro: as dimensoes da matriz nao correspondem\n\n");
             }
         }
         else if (escolha == 3)
@@ -68,7 +68,7 @@ int main()
             }
             else
             {
-                printf("Erro: as dimensoes da matriz nao correspondem\n");
+                printf("Erro: o numero de colunas da primeira matriz eh diferente do numero de linhas da segunda matriz\n\n");
             }
         }
         else if (escolha == 4)
@@ -92,12 +92,15 @@ int main()
         else if (escolha == 5)
         {
             transpose_matrix(rows1, cols1, matrix1, result);
+            matrix_print(cols1, rows1, result);
+            transpose_matrix(rows2, cols2, matrix2, result);
+            matrix_print(cols2, rows2, result);
         }
         else if (escolha == 6)
         {
             return 0;
         }
-        else 
+        else
         {
             printf("Opcao invalida\n");
         }

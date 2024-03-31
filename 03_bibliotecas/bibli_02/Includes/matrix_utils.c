@@ -20,10 +20,22 @@ void matrix_print(int rows, int cols, int matrix[rows][cols])
     {
         for (j = 0; j < cols; j++)
         {
-            printf("%d ", matrix[i][j]);
+            if (j == 0)
+            {
+                printf("|");
+            }
+            if (j == cols - 1)
+            {
+                printf("%d", matrix[i][j]);
+            }
+            else
+            {
+                printf("%d ", matrix[i][j]);
+            }
         }
-        printf("\n");
+        printf("|\n");
     }
+    printf("\n");
 }
 
 int possible_matrix_sum(int rows1, int cols1, int rows2, int cols2)
@@ -46,7 +58,7 @@ void matrix_add(int rows1, int cols1, int matrix1[rows1][cols1], int rows2, int 
     int i, j;
 
     // Inicializando matriz com 0;
-    for (i = 0; i < rows1; i++) 
+    for (i = 0; i < rows1; i++)
     {
         for (j = 0; j < cols1; j++)
         {
@@ -65,10 +77,10 @@ void matrix_add(int rows1, int cols1, int matrix1[rows1][cols1], int rows2, int 
 
 void matrix_sub(int rows1, int cols1, int matrix1[rows1][cols1], int rows2, int cols2, int matrix2[rows2][cols2], int result[rows1][cols1])
 {
-    int i, j;    
+    int i, j;
 
     // Inicializando matriz com 0;
-    for (i = 0; i < rows1; i++) 
+    for (i = 0; i < rows1; i++)
     {
         for (j = 0; j < cols1; j++)
         {
@@ -90,7 +102,7 @@ void matrix_multiply(int rows1, int cols1, int matrix1[rows1][cols1], int rows2,
     int i, j, k, sum;
 
     // Inicializando matriz com 0;
-    for (i = 0; i < rows1; i++) 
+    for (i = 0; i < rows1; i++)
     {
         for (j = 0; j < cols2; j++)
         {
@@ -110,13 +122,12 @@ void matrix_multiply(int rows1, int cols1, int matrix1[rows1][cols1], int rows2,
     }
 }
 
-
-void transpose_matrix(int rows, int cols, int matrix[rows][cols], int result[cols][rows]) 
+void transpose_matrix(int rows, int cols, int matrix[rows][cols], int result[cols][rows])
 {
     int i, j;
 
     // Inicializando matriz com 0;
-    for (i = 0; i < cols; i++) 
+    for (i = 0; i < cols; i++)
     {
         for (j = 0; j < rows; j++)
         {
@@ -124,11 +135,11 @@ void transpose_matrix(int rows, int cols, int matrix[rows][cols], int result[col
         }
     }
 
-    for (i = 0; i < rows; i++)
+    for (i = 0; i < cols; i++)
     {
-        for (j = 0; j < cols; j++)
+        for (j = 0; j < rows; j++)
         {
-            result[i][j] = matrix[i][j];
+            result[i][j] = matrix[j][i];
         }
     }
 }
