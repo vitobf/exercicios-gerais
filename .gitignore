@@ -1,6 +1,10 @@
 # Arquivos executáveis do linux
 01_revisao/rev_01/exercicio
 
+# vscode
+.vscode/
+.vscode/settings.json
+
 # Prerequisites
 *.d
 
