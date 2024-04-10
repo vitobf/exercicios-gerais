@@ -1,0 +1,21 @@
+./main >testes/entrada_1 >s1
+./main >testes/entrada_2 >s2
+./main >testes/entrada_3 >s3
+./main >testes/entrada_4 >s4
+./main >testes/entrada_5 >s5
+./main >testes/entrada_6 >s6
+./main >testes/entrada_7 >s7
+./main >testes/entrada_8 >s8
+./main >testes/entrada_9 >s9
+./main >testes/entrada_10 >s10
+
+diff testes/saida_1 s1
+diff testes/saida_2 s2
+diff testes/saida_3 s3
+diff testes/saida_4 s4
+diff testes/saida_5 s5
+diff testes/saida_6 s6
+diff testes/saida_7 s7
+diff testes/saida_8 s8
+diff testes/saida_9 s9
+diff testes/saida_10 s10
